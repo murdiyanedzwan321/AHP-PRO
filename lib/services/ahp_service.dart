@@ -9,7 +9,7 @@ class AhpService {
   static const String _fallbackUrl = 'http://127.0.0.1:5000'; 
   
   // URL Raw Gist (Nanti diisi User sesuai TOR)
-  static const String _configGistUrl = 'YOUR_RAW_GIST_URL_HERE';
+  static const String _configGistUrl = 'https://gist.githubusercontent.com/murdiyanedzwan321/270d97517bef8531775145eecdda01f5/raw/d310af7b602fa2f8f0f145961bb18465102a9a5f/config.json';
 
   Future<String> getBaseUrl() async {
     try {
