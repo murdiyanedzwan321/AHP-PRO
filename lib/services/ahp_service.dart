@@ -2,34 +2,52 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AhpService {
-  // FALLBACK URL (Untuk testing di localhost jika Gist belum siap atau down)
-  // Di Emulator Android gunakan 10.0.2.2 sebagai localhost
-  // Di Web/iOS gunakan 127.0.0.1 atau localhost
-  // Ganti port sesuai Flask (5000)
-  static const String _fallbackUrl = 'https://gist.githubusercontent.com/murdiyanedzwan321/270d97517bef8531775145eecdda01f5/raw/d310af7b602fa2f8f0f145961bb18465102a9a5f/config.json'; 
+  // Singleton instance
+  static final AhpService _instance = AhpService._internal();
+  factory AhpService() => _instance;
+  AhpService._internal();
+
+  // Default Fallback API URL (Localhost)
+  // Gunakan 10.0.2.2 untuk Android Emulator, localhost untuk Web
+  static const String _defaultFallbackUrl = 'http://127.0.0.1:5000'; 
   
-  // URL Raw Gist (Nanti diisi User sesuai TOR)
-  static const String _configGistUrl = 'https://gist.githubusercontent.com/murdiyanedzwan321/270d97517bef8531775145eecdda01f5/raw/d310af7b602fa2f8f0f145961bb18465102a9a5f/config.json';
+  // Storage for the Gist URL (In-memory for now)
+  // Defaulting to the one provided by user for convenience, but can be changed via UI
+  String _currentGistUrl = 'https://gist.githubusercontent.com/murdiyanedzwan321/270d97517bef8531775145eecdda01f5/raw/d310af7b602fa2f8f0f145961bb18465102a9a5f/config.json';
+
+  String get currentGistUrl => _currentGistUrl;
+
+  void setGistUrl(String url) {
+    _currentGistUrl = url;
+  }
 
   Future<String> getBaseUrl() async {
+    if (_currentGistUrl.isEmpty) return _defaultFallbackUrl;
+
     try {
-      final response = await http.get(Uri.parse(_configGistUrl));
+      final response = await http.get(Uri.parse(_currentGistUrl));
       if (response.statusCode == 200) {
         final Map<String, dynamic> config = jsonDecode(response.body);
-        return config['base_url'] ?? _fallbackUrl;
+        // Expecting JSON: { "base_url": "https://your-backend-api.com" }
+        return config['base_url'] ?? _defaultFallbackUrl;
       }
     } catch (e) {
       print('Gagal mengambil config Gist, menggunakan fallback: $e');
     }
-    return _fallbackUrl;
+    return _defaultFallbackUrl;
   }
 
   Future<Map<String, dynamic>> calculateAhp(Map<String, dynamic> payload) async {
-    // 1. Dapatkan Base URL (Idealnya dari Gist, tapi kita hardcode localhost dulu utk dev)
-    // String baseUrl = await getBaseUrl();
-    String baseUrl = _fallbackUrl; // Bypass Gist untuk dev lokal
+    // 1. Get Dynamic Base URL from Gist
+    String baseUrl = await getBaseUrl();
+    
+    // Remove trailing slash if present to avoid double slashes
+    if (baseUrl.endsWith('/')) {
+      baseUrl = baseUrl.substring(0, baseUrl.length - 1);
+    }
 
     final url = Uri.parse('$baseUrl/api/calculate-ahp');
+    print("Sending request to: $url"); // Debug log
     
     try {
       final response = await http.post(

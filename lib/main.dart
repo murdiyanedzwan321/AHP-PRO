@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/comparison_screen.dart';
+import 'screens/config_screen.dart';
 
 void main() {
   runApp(const AgroAhpApp());
@@ -42,7 +43,20 @@ class MainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Agro-AHP Pro: Maintenance Decision")),
+      appBar: AppBar(
+        title: const Text("Agro-AHP Pro: Maintenance Decision"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ConfigScreen()),
+              );
+            },
+          ),
+        ],
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
