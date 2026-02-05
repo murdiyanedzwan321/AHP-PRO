@@ -1,9 +1,9 @@
 # Agro-AHP Pro
 **Microservices-Based Maintenance Decision System**
 
-Created by: Murdiyan Edzwan Nazib
+Di Buat Oleh: Murdiyan Edzwan Nazib
 
-Case Study: Pabrik Kopi Roastery
+Tentang Studi Kasus: Pabrik Kopi Roastery
 
 
 Pada kesempatan ini, saya akan mempresentasikan proyek yang berjudul Agro-AHP Pro, yaitu sistem pendukung keputusan untuk menentukan prioritas perawatan mesin berbasis microservices, dengan studi kasus pada pabrik kopi roastery.
@@ -68,6 +68,7 @@ The backend performs the heavy lifting of AHP Matrix calculations.
 
 ## License
 Student Project - EAS
+
 
 
 
