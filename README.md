@@ -3,6 +3,8 @@
 
 Created by: Murdiyan Edzwan Nazib
 Case Study: Pabrik Kopi Roastery
+
+
 Pada kesempatan ini, saya akan mempresentasikan proyek yang berjudul Agro-AHP Pro, yaitu sistem pendukung keputusan untuk menentukan prioritas perawatan mesin berbasis microservices, dengan studi kasus pada pabrik kopi roastery.
 Latar belakang dari proyek ini adalah proses perawatan mesin roasting kopi yang masih sering dilakukan berdasarkan pengalaman atau penilaian subjektif. Padahal, setiap mesin memiliki karakteristik dan tingkat urgensi perawatan yang berbeda. Oleh karena itu, dibutuhkan suatu sistem pendukung keputusan yang dapat membantu menentukan prioritas perawatan mesin secara objektif dan terukur.
 Tujuan dari pengembangan sistem ini adalah membangun aplikasi yang mampu membantu pengambilan keputusan perawatan mesin dengan menggunakan metode Analytic Hierarchy Process atau AHP. Metode ini dipilih karena mampu menangani permasalahan dengan banyak kriteria dan alternatif, serta menghasilkan keputusan yang konsisten.
@@ -65,4 +67,5 @@ The backend performs the heavy lifting of AHP Matrix calculations.
 
 ## License
 Student Project - EAS
+
 
