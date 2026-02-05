@@ -108,3 +108,4 @@ Checklist Deliverables
  Logika AHP (Eigenvector & Consistency Ratio)
 
  Implementasi Studi Kasus
+
