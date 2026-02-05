@@ -11,16 +11,16 @@ Latar belakang dari proyek ini adalah proses perawatan mesin roasting kopi yang 
 Tujuan dari pengembangan sistem ini adalah membangun aplikasi yang mampu membantu pengambilan keputusan perawatan mesin dengan menggunakan metode Analytic Hierarchy Process atau AHP. Metode ini dipilih karena mampu menangani permasalahan dengan banyak kriteria dan alternatif, serta menghasilkan keputusan yang konsisten.
 Dalam sistem ini, AHP bekerja dengan menyusun hierarki keputusan yang terdiri dari tujuan, kriteria, dan alternatif. Selanjutnya dilakukan perbandingan berpasangan antar kriteria dan antar alternatif. Dari perbandingan tersebut dihitung nilai eigenvector untuk memperoleh bobot prioritas, serta dilakukan pengujian consistency ratio untuk memastikan hasil perhitungan valid.
 
-## Project Overview
+## Gambaran Umum Proyek
 Agro-AHP Pro is a decision support system built with a Python (Flask) backend and a Flutter frontend. It uses the Analytic Hierarchy Process (AHP) to prioritize machine maintenance tasks based on technical and economic criteria.
 
-## Repository Structure
+## Struktur Repositori
 - `/backend`: Python Flask code & Jupyter Notebook.
 - `/frontend`: Flutter Mobile App source code.
 
-## Getting Started
+## Memulai
 
-### 1. Backend Setup
+### 1. Pengaturan Backend
 The backend performs the heavy lifting of AHP Matrix calculations.
 
 **Option A: Google Colab (Recommended for TOR)**
@@ -38,7 +38,7 @@ The backend performs the heavy lifting of AHP Matrix calculations.
 2. Content: `{"base_url": "YOUR_NGROK_URL_HERE"}`
 3. Get the **Raw URL** of the Gist.
 
-### 3. Frontend Setup (Flutter)
+### 3. Pengaturan Frontend (Flutter)
 1. Go to `frontend/lib/services/ahp_service.dart`.
 2. Update `_configGistUrl` with your **Raw Gist URL**.
    - *Note: For local testing, the app is set to fallback to localhost:5000 automatically.*
@@ -48,7 +48,7 @@ The backend performs the heavy lifting of AHP Matrix calculations.
    flutter run
    ```
 
-## Case Study Data (Pabrik Kopi Roastery)
+## Data Studi Kasus (Pabrik Kopi Roastery)
 **Criteria:**
 1. Kestabilan Suhu Sangrai
 2. Konsumsi Gas
@@ -68,6 +68,7 @@ The backend performs the heavy lifting of AHP Matrix calculations.
 
 ## License
 Student Project - EAS
+
 
 
 
