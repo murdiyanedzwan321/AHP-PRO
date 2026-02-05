@@ -12,7 +12,7 @@ Tujuan dari pengembangan sistem ini adalah membangun aplikasi yang mampu membant
 Dalam sistem ini, AHP bekerja dengan menyusun hierarki keputusan yang terdiri dari tujuan, kriteria, dan alternatif. Selanjutnya dilakukan perbandingan berpasangan antar kriteria dan antar alternatif. Dari perbandingan tersebut dihitung nilai eigenvector untuk memperoleh bobot prioritas, serta dilakukan pengujian consistency ratio untuk memastikan hasil perhitungan valid.
 
 ## Gambaran Umum Proyek
-Agro-AHP Pro is a decision support system built with a Python (Flask) backend and a Flutter frontend. It uses the Analytic Hierarchy Process (AHP) to prioritize machine maintenance tasks based on technical and economic criteria.
+Agro-AHP Pro adalah sistem pendukung keputusan yang dibangun dengan backend Python (Flask) dan frontend Flutter. Sistem ini menggunakan Analytic Hierarchy Process (AHP) untuk memprioritaskan tugas pemeliharaan mesin berdasarkan kriteria teknis dan ekonomi.
 
 ## Struktur Repositori
 - `/backend`: Python Flask code & Jupyter Notebook.
@@ -68,6 +68,7 @@ The backend performs the heavy lifting of AHP Matrix calculations.
 
 ## License
 Student Project - EAS
+
 
 
 
