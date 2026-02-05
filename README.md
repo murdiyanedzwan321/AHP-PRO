@@ -1,63 +1,110 @@
-# Agro-AHP Pro
-**Microservices-Based Maintenance Decision System**
+Agro-AHP Pro
 
-Created by: Murdiyan Edzwan Nazib
-Case Study: Pabrik Kopi Roastery
+Sistem Pendukung Keputusan Perawatan Berbasis Microservices
 
-## Project Overview
-Agro-AHP Pro is a decision support system built with a Python (Flask) backend and a Flutter frontend. It uses the Analytic Hierarchy Process (AHP) to prioritize machine maintenance tasks based on technical and economic criteria.
+Dibuat oleh: Murdiyan Edzwan Nazib
+Studi Kasus: Pabrik Kopi Roastery
 
-## Repository Structure
-- `/backend`: Python Flask code & Jupyter Notebook.
-- `/frontend`: Flutter Mobile App source code.
+Gambaran Proyek
 
-## Getting Started
+Agro-AHP Pro adalah sistem pendukung keputusan (Decision Support System) yang dikembangkan menggunakan backend Python (Flask) dan frontend Flutter. Sistem ini menerapkan metode Analytic Hierarchy Process (AHP) untuk menentukan prioritas perawatan mesin berdasarkan kriteria teknis dan ekonomi.
 
-### 1. Backend Setup
-The backend performs the heavy lifting of AHP Matrix calculations.
+Aplikasi ini dirancang dengan pendekatan microservices, sehingga backend dan frontend dapat berjalan secara independen dan fleksibel, baik secara lokal maupun melalui layanan cloud.
 
-**Option A: Google Colab (Recommended for TOR)**
-1. Open `/backend/Agro_AHP_Engine.ipynb` in Google Colab.
-2. Run all cells.
-3. Copy the generated **Ngrok URL** (e.g., `https://abcd.ngrok-free.app`).
+Struktur Repository
 
-**Option B: Localhost**
-1. Install dependencies: `pip install -r backend/requirements.txt`
-2. Run server: `python backend/app.py`
-3. Server runs at `http://127.0.0.1:5000`
+/backend
+Berisi kode backend Python Flask serta Jupyter Notebook untuk perhitungan AHP.
 
-### 2. Configuration Bridge (Gist)
-1. Create a public GitHub Gist named `config.json`.
-2. Content: `{"base_url": "YOUR_NGROK_URL_HERE"}`
-3. Get the **Raw URL** of the Gist.
+/frontend
+Berisi source code aplikasi mobile Flutter.
 
-### 3. Frontend Setup (Flutter)
-1. Go to `frontend/lib/services/ahp_service.dart`.
-2. Update `_configGistUrl` with your **Raw Gist URL**.
-   - *Note: For local testing, the app is set to fallback to localhost:5000 automatically.*
-3. Run the app:
-   ```bash
-   cd frontend
-   flutter run
-   ```
+Panduan Memulai
+1. Setup Backend
 
-## Case Study Data (Pabrik Kopi Roastery)
-**Criteria:**
-1. Kestabilan Suhu Sangrai
-2. Konsumsi Gas
-3. Presisi Grinding
+Backend berfungsi untuk melakukan perhitungan matriks AHP, eigenvector, dan Consistency Ratio (CR).
 
-**Alternatives:**
-- Mesin Roasting A (German)
-- Mesin Roasting B (China)
-- Mesin Roasting C (Lokal)
-- Mesin Roasting D (Second)
+Opsi A: Google Colab (Direkomendasikan untuk TOR)
 
-## Deliverables Checklist
-- [x] Backend API (Python/Flask)
-- [x] Frontend UI (Flutter)
-- [x] AHP Logic (Eigenvector & CR)
-- [x] Case Study Implementation
+Buka file /backend/Agro_AHP_Engine.ipynb menggunakan Google Colab.
 
-## License
-Student Project - EAS
+Jalankan seluruh cell notebook.
+
+Salin URL Ngrok yang dihasilkan
+(contoh: https://abcd.ngrok-free.app).
+
+Opsi B: Localhost
+
+Install seluruh dependensi:
+
+pip install -r backend/requirements.txt
+
+
+Jalankan server:
+
+python backend/app.py
+
+
+Server akan berjalan di:
+
+http://127.0.0.1:5000
+
+2. Konfigurasi Jembatan (GitHub Gist)
+
+Digunakan sebagai penghubung dinamis antara backend dan frontend.
+
+Buat GitHub Gist publik dengan nama config.json.
+
+Isi file dengan format berikut:
+
+{
+  "base_url": "URL_NGROK_ANDA"
+}
+
+
+Salin Raw URL dari Gist tersebut.
+
+3. Setup Frontend (Flutter)
+
+Buka file:
+
+frontend/lib/services/ahp_service.dart
+
+
+Perbarui variabel _configGistUrl dengan Raw URL GitHub Gist.
+
+Catatan: Untuk pengujian lokal, aplikasi otomatis menggunakan fallback localhost:5000.
+
+Jalankan aplikasi:
+
+cd frontend
+flutter run
+
+Data Studi Kasus (Pabrik Kopi Roastery)
+Kriteria Penilaian
+
+Kestabilan Suhu Sangrai
+
+Konsumsi Gas
+
+Presisi Grinding
+
+Alternatif Mesin
+
+Mesin Roasting A (Jerman)
+
+Mesin Roasting B (China)
+
+Mesin Roasting C (Lokal)
+
+Mesin Roasting D (Second/ Bekas)
+
+Checklist Deliverables
+
+ Backend API (Python / Flask)
+
+ Antarmuka Frontend (Flutter)
+
+ Logika AHP (Eigenvector & Consistency Ratio)
+
+ Implementasi Studi Kasus
